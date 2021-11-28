@@ -225,3 +225,7 @@ Procfile          text
 
 # Ignore files (like .npmignore or .gitignore)
 *.*ignore         text
+
+# yarn berry
+.yarn/releases/** binary
+.yarn/plugins/** binary

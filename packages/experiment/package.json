@@ -1,0 +1,19 @@
+{
+  "name": "experiment",
+  "version": "0.0.1",
+  "devDependencies": {
+    "@es4x/create": "0.16.1",
+    "@vertx/unit": "^4.2.1"
+  },
+  "dependencies": {
+    "@vertx/core": "^4.2.1"
+  },
+  "scripts": {
+    "postinstall": "es4x install",
+    "prestart": "tsc",
+    "start": "es4x",
+    "pretest": "tsc",
+    "test": "es4x test dist/index.test.js",
+    "dockerfile": "es4x dockerfile"
+  }
+}
