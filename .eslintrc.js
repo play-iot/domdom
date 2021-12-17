@@ -12,12 +12,12 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: ['./tsconfig.json', './app/tsconfig.json', './packages/*/tsconfig.json'],
+    project: ['./tsconfig.json'],
     ecmaVersion: 'es2021',
     sourceType: 'module',
   },
   plugins: ['import', '@typescript-eslint', 'jest'],
-  ignorePatterns: ['dist', 'build', 'config', '.babelrc', '.eslintrc.js'],
+  ignorePatterns: ['dist', 'build', '.babelrc', '.eslintrc.js', 'jest.config.js'],
   overrides: [
     {
       files: ['**/tests/**/*.{j,t}s?(x)', '**/tests/**/*.spec.{j,t}s?(x)'],

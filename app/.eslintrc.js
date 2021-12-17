@@ -8,6 +8,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:testing-library/react',
   ],
+  ignorePatterns: ['dist', 'build', '.babelrc', '.eslintrc.js', 'jest.config.js', 'craco.config.js'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true, // Allows for the parsing of JSX

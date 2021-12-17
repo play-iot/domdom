@@ -13,6 +13,6 @@
     "compile": "tsc -p tsconfig.build.json",
     "build": "yarn run clean && yarn run compile",
     "prepublishOnly": "yarn run build",
-    "test": "jest --coverage --config=config/jest.config.js"
+    "test": "jest --coverage"
   }
 }

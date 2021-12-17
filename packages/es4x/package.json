@@ -19,7 +19,6 @@
     "prestart": "yarn run compile",
     "start": "es4x run ./dist/index.js",
     "pretest": "yarn run compile",
-    "test": "es4x test ./dist/index.test.js",
     "dockerfile": "es4x dockerfile"
   }
 }

@@ -2,7 +2,6 @@
   "name": "@tikio/app",
   "version": "0.1.0",
   "private": true,
-  "cracoConfig": "config/craco.config.js",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@tikio/wire": "0.0.1",
@@ -17,7 +16,7 @@
     "build": "yarn run clean && craco build",
     "lint": "eslint .",
     "start": "craco start",
-    "test": "jest --coverage --config=config/jest.config.js"
+    "test": "jest --coverage"
   },
   "browserslist": {
     "production": [

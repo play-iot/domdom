@@ -7,7 +7,7 @@ const CracoAntDesignPlugin = require('craco-antd');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const WebpackBar = require('webpackbar');
-const PATHS = require('./paths');
+const { resolve } = require('path');
 
 console.log(process.env.NODE_ENV);
 const webpackPlugins =
@@ -45,7 +45,7 @@ module.exports = {
     {
       plugin: CracoAntDesignPlugin,
       options: {
-        customizeThemeLessPath: PATHS.src.to('style', 'antd.customize.less'),
+        customizeThemeLessPath: resolve(__dirname, '../', 'src', 'style', 'antd.customize.less'),
       },
     },
   ],
