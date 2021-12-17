@@ -1,0 +1,7 @@
+<component name="CopyrightManager">
+  <settings default="playio">
+    <module2copyright>
+      <element module="All" copyright="playio" />
+    </module2copyright>
+  </settings>
+</component>
