@@ -5,6 +5,7 @@
   "cracoConfig": "config/craco.config.js",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@tikio/wire": "0.0.1",
     "antd": "^4.17.3",
     "dayjs": "^1.10.7",
     "react": "^17.0.2",

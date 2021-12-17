@@ -1,7 +1,7 @@
 module.exports = {
   root: false,
   extends: [
-    '../../.eslintrc.js',
+    '../.eslintrc.js',
     'airbnb-typescript',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',

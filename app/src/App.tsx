@@ -1,5 +1,6 @@
 import { DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import '@style/App.less';
+import { hello } from '@tikio/wire';
 import { Button, DatePicker, Divider, Form, InputNumber, Rate, Select, Slider, Space, Switch, Typography } from 'antd';
 
 const { Title } = Typography;
@@ -27,7 +28,7 @@ const App = () => (
     <Form labelCol={{ span: 8 }} wrapperCol={{ span: 8 }}>
       <Form.Item label='123'>
         <InputNumber min={1} max={10} defaultValue={3} />
-        <span className='ant-form-text'>122</span>
+        <span className='ant-form-text'>{hello}</span>
         <a href='https://ant.design'>Hey</a>
       </Form.Item>
       <Form.Item label='as'>

@@ -10,9 +10,8 @@ const WebpackBar = require('webpackbar');
 const PATHS = require('./paths');
 
 console.log(process.env.NODE_ENV);
-const webpackPlugins = /* process.env.NODE_ENV === "development" ?  */ [
-  new BundleAnalyzerPlugin({ openAnalyzer: true }),
-]; /* : [] */
+const webpackPlugins =
+  process.env.NODE_ENV === 'development' ? [new BundleAnalyzerPlugin({ openAnalyzer: false })] : [];
 
 module.exports = {
   babel: {
@@ -40,7 +39,7 @@ module.exports = {
         debug: false,
         source: 'tsconfig',
         baseUrl: '.',
-        tsConfigPath: './tsconfig.paths.json',
+        tsConfigPath: './tsconfig.build.json',
       },
     },
     {
