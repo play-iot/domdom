@@ -1,0 +1,22 @@
+{
+  "name": "@tikio/es4x",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "@es4x/create": "0.16.1",
+    "@vertx/unit": "^4.2.1"
+  },
+  "dependencies": {
+    "@tikio/wire": "0.0.1",
+    "@vertx/core": "^4.2.1"
+  },
+  "scripts": {
+    "postinstall": "es4x install",
+    "prestart": "tsc",
+    "start": "es4x run dist/index.ts",
+    "pretest": "tsc",
+    "test": "es4x test dist/index.test.js",
+    "dockerfile": "es4x dockerfile",
+    "lint": "eslint ."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@tikio/wire",
+  "version": "0.0.1",
+  "private": true,
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": ["dist"],
+  "scripts": {
+    "prestart": "tsc",
+    "pretest": "tsc",
+    "lint": "eslint ."
+  }
+}
