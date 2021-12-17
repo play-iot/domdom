@@ -28,6 +28,7 @@
     "eslint-plugin-testing-library": "^3.9.2",
     "jest": "27.3.1",
     "jest-junit": "^13.0.0",
+    "lerna": "^4.0.0",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.1.1",
@@ -35,15 +36,16 @@
     "typescript": "^4.5.2"
   },
   "scripts": {
-    "clean": "yarn workspaces run clean",
-    "build": "yarn workspaces run build",
-    "lint": "yarn workspaces run lint",
-    "test": "yarn workspaces run test",
+    "clean": "lerna run clean",
+    "build": "lerna run build",
+    "lint": "lerna run lint",
+    "test": "lerna run test",
     "app:start": "yarn workspace @tikio/app start",
     "app:build": "yarn workspace @tikio/app build",
     "es4x:start": "yarn workspace @tikio/es4x start"
   },
   "workspaces": [
+    "app",
     "packages/*"
   ]
 }

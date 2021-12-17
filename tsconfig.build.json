@@ -4,7 +4,8 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
@@ -17,7 +18,8 @@
     ],
     "module": "esnext",
     "moduleResolution": "node",
-    "noEmit": true,
+    "noEmit": false,
+    "noEmitOnError": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -33,13 +35,9 @@
       "node_modules/@types"
     ]
   },
-  "display": "tikio",
-  "include": [
-    "src",
-    "tests"
-  ],
   "exclude": [
-    "node_modules",
-    "dist"
+    "**/node_modules",
+    "**/dist",
+    "**/build"
   ]
 }
