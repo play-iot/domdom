@@ -1,0 +1,47 @@
+{
+  "name": "@tikio/app",
+  "version": "0.1.0",
+  "private": true,
+  "cracoConfig": "config/craco.config.js",
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.17.3",
+    "dayjs": "^1.10.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  },
+  "scripts": {
+    "clean": "rimraf dist/* && rimraf build/*",
+    "build": "yarn run clean && craco build",
+    "lint": "eslint .",
+    "start": "craco start",
+    "test": "jest --coverage --config=config/jest.config.js"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^6.4.3",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "antd-dayjs-webpack-plugin": "^1.0.6",
+    "craco-alias": "^3.0.1",
+    "craco-antd": "^1.19.0",
+    "craco-less": "^1.20.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpackbar": "^5.0.2"
+  }
+}

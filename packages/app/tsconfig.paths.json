@@ -1,0 +1,30 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "src": [
+        "src"
+      ],
+      "@pages": [
+        "src/pages/index.ts"
+      ],
+      "@components": [
+        "src/components/index.ts"
+      ],
+      "@style": [
+        "src/style"
+      ],
+      "@style/*": [
+        "src/style/*"
+      ],
+      "tests": [
+        "tests"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "tests"
+  ]
+}

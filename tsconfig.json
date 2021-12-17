@@ -1,26 +1,30 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "tikio",
+  "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "esnext",
-    "types": [],
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true
+    "paths": {
+      "@tikio/app": [
+        "packages/app/src"
+      ],
+      "@tikio/es4x": [
+        "packages/es4x/src"
+      ],
+      "@tikio/wire": [
+        "packages/wire/src"
+      ],
+      "@tikio/*": [
+        "packages/*/src"
+      ]
+    }
   },
-  "exclude": [
-    "packages/**/tests/**",
-    "packages/**/dist/**"
-  ],
   "references": [
     {
-      "path": "./packages/experiment"
+      "path": "./packages/app"
     },
     {
-      "path": "./packages/frontend"
+      "path": "./packages/es4x"
+    },
+    {
+      "path": "./packages/wire"
     }
   ]
 }
