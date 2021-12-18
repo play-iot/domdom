@@ -2,13 +2,12 @@
   "extends": "./tsconfig.build.json",
   "display": "tikio",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "@tikio/app": [
-        "./app/src"
+        "app/src"
       ],
       "@tikio/*": [
-        "./packages/*/src"
+        "packages/*/src"
       ]
     }
   }

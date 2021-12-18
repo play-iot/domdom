@@ -9,10 +9,14 @@
  * All rights reserved.
  */
 
-const sharedConfig = require('../../jest.config.js');
+export type Named = 'hi' | 'hello';
 
-module.exports = {
-  ...sharedConfig,
-  rootDir: './',
-  testEnvironment: 'node',
-};
+export enum Key {
+  Key1 = 2,
+  Key2 = 'zero',
+}
+
+export interface Hey {
+  name: Named;
+  key: Key;
+}

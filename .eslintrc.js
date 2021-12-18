@@ -17,7 +17,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['import', '@typescript-eslint', 'jest'],
-  ignorePatterns: ['dist', 'build', '.babelrc', '.eslintrc.js', 'jest.config.js'],
+  ignorePatterns: ['dist', 'build', '.babelrc', '.eslintrc.js', 'jest.config.js', 'rollup.config.js'],
   overrides: [
     {
       files: ['**/tests/**/*.{j,t}s?(x)', '**/tests/**/*.spec.{j,t}s?(x)'],
@@ -49,6 +49,7 @@ module.exports = {
         ],
       },
     ],
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/lines-between-class-members': [
       'error',

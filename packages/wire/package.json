@@ -2,17 +2,23 @@
   "name": "@tikio/wire",
   "version": "0.0.1",
   "private": true,
-  "main": "dist/index",
-  "types": "dist/index",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "scripts": {
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "clean": "rimraf -rf ./dist",
-    "compile": "tsc -p tsconfig.build.json",
-    "build": "yarn run clean && yarn run compile",
-    "prepublishOnly": "yarn run build",
+    "precompile": "yarn clean",
+    "compile": "tsc -p tsconfig.json",
+    "prebuild": "yarn clean",
+    "build": "parcel build --detailed-report",
+    "prepublishOnly": "yarn build",
+    "pretest": "rimraf -rf ./build",
     "test": "jest --coverage"
   }
 }

@@ -3,13 +3,21 @@
  * All rights reserved.
  */
 
-import { hello } from '@tikio/wire';
+import { hello, Hey, Key } from '@tikio/wire';
 import { HttpServerRequest } from '@vertx/core';
+
+const hey: Hey = {
+  name: 'hi',
+  key: Key.Key1,
+};
 
 vertx
   .createHttpServer()
   .requestHandler(function (req: HttpServerRequest) {
-    req.response().putHeader('content-type', 'text/plain').end(`Hello ES4X ${hello}!`);
+    req
+      .response()
+      .putHeader('content-type', 'text/plain')
+      .end(`Hello ES4X ${hello} - ${JSON.stringify(hey)}!`);
   })
   .listen(3001);
 

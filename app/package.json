@@ -13,10 +13,11 @@
   },
   "scripts": {
     "clean": "rimraf dist/* && rimraf build/*",
-    "build": "yarn run clean && craco build",
+    "build": "yarn clean && craco build",
     "lint": "eslint .",
     "start": "craco start",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "typecheck": "tsc --noEmit"
   },
   "browserslist": {
     "production": [
