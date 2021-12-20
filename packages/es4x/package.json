@@ -1,0 +1,26 @@
+{
+  "name": "@tikio/es4x",
+  "version": "0.0.1",
+  "private": true,
+  "source": "src/index.ts",
+  "devDependencies": {
+    "@es4x/create": "0.16.2",
+    "@vertx/unit": "^4.2.1"
+  },
+  "dependencies": {
+    "@tikio/wire": "0.0.1",
+    "@vertx/core": "^4.2.1"
+  },
+  "scripts": {
+    "dockerfile": "es4x dockerfile",
+    "postinstall": "es4x install",
+    "lint": "eslint .",
+    "clean": "rimraf -rf ./dist",
+    "prebuild": "yarn clean",
+    "build": "parcel build --detailed-report",
+    "try": "yarn clean && ncc build src/index.ts -mt",
+    "typecheck": "tsc --noEmit",
+    "prestart": "parcel build --detailed-report",
+    "start": "es4x run --redeploy='src/**/*' --on-redeploy=\"yarn build\" js:./dist/index.js "
+  }
+}

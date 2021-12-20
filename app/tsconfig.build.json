@@ -1,0 +1,38 @@
+{
+  "extends": "../tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "esnext",
+    "noEmit": true,
+    "paths": {
+      "src": [
+        "src"
+      ],
+      "@pages": [
+        "src/pages/index.ts"
+      ],
+      "@components": [
+        "src/components/index.ts"
+      ],
+      "@style": [
+        "src/style"
+      ],
+      "@style/*": [
+        "src/style/*"
+      ],
+      "tests": [
+        "tests"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "tests"
+  ]
+}
