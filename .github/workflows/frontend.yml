@@ -50,7 +50,7 @@ jobs:
           mustSign: true
           nextVerMode: PATCH
 
-  verify:
+  build:
     runs-on: ubuntu-latest
     needs: context
     if: needs.context.outputs.shouldBuild == 'true'
@@ -62,8 +62,11 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'yarn'
 
-      - name: Yarn Install
+      - name: Install
         run: yarn install
+
+      - name: Build
+        run: yarn build
 
       - name: Typecheck
         run: yarn typecheck
@@ -71,45 +74,12 @@ jobs:
       - name: Lint
         run: yarn lint
 
-  build:
-    runs-on: ubuntu-latest
-    needs: [ context, verify ]
-    if: needs.context.outputs.shouldBuild == 'true'
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
-
-      - name: Yarn Install
-        run: yarn install
-
-      - name: Yarn build
-        run: yarn build
-
-  analysis:
-    runs-on: ubuntu-latest
-    needs: [ context, verify ]
-    if: needs.context.outputs.shouldBuild == 'true'
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
-
-      - name: Yarn Install
-        run: yarn install
-
       - name: Test
         run: yarn test
 
   release:
     runs-on: ubuntu-latest
-    needs: [ build, analysis ]
+    needs: build
     if: needs.context.outputs.isRelease == 'true'
     steps:
       - name: Create GitHub Release
