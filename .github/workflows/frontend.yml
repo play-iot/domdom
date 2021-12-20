@@ -16,6 +16,7 @@ on:
 env:
   ENABLE_GH_MAVEN: false
   NODE_VERSION: '16'
+  CI: false
 
 jobs:
   context:

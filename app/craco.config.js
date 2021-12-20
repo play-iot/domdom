@@ -10,8 +10,6 @@ const WebpackBar = require('webpackbar');
 const { resolve } = require('path');
 
 console.log(process.env.NODE_ENV);
-const webpackPlugins =
-  process.env.NODE_ENV === 'development' ? [new BundleAnalyzerPlugin({ openAnalyzer: false })] : [];
 
 module.exports = {
   babel: {
@@ -50,6 +48,10 @@ module.exports = {
     },
   ],
   webpack: {
-    plugins: [new AntdDayjsWebpackPlugin(), new WebpackBar({ profile: true }), ...webpackPlugins],
+    plugins: [
+      new AntdDayjsWebpackPlugin(),
+      new WebpackBar({ profile: true }),
+      ...(process.env.NODE_ENV === 'development' ? [new BundleAnalyzerPlugin({ openAnalyzer: false })] : []),
+    ],
   },
 };
