@@ -1,7 +1,23 @@
 import { DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import { DebounceTextInput } from '@components';
 import '@style/App.less';
-import { hello } from '@tikio/wire';
-import { Button, DatePicker, Divider, Form, InputNumber, Rate, Select, Slider, Space, Switch, Typography } from 'antd';
+import { hello } from '@domdom/wire';
+import {
+  Button,
+  DatePicker,
+  Divider,
+  Form,
+  Input,
+  InputNumber,
+  Rate,
+  Select,
+  Slider,
+  Space,
+  Switch,
+  TimePicker,
+  Typography,
+} from 'antd';
+import Search from 'antd/es/input/Search';
 
 const { Title } = Typography;
 
@@ -34,6 +50,15 @@ const App = () => (
       <Form.Item label='as'>
         <Switch defaultChecked />
       </Form.Item>
+      <Form.Item label='input1'>
+        <DebounceTextInput value={123} debounceTimeout={2000} onChange={(e) => console.log(e.target.value)} />
+      </Form.Item>
+      <Form.Item label='input2'>
+        <Input defaultValue={'abc'} onChange={(e) => console.log(e.target.value)} />
+      </Form.Item>
+      <Form.Item label='search'>
+        <Search onSearch={(value) => console.log(value)} />
+      </Form.Item>
       <Form.Item label='1212'>
         <Slider defaultValue={70} />
       </Form.Item>
@@ -52,6 +77,9 @@ const App = () => (
       </Form.Item>
       <Form.Item label='zxbv'>
         <DatePicker.RangePicker />
+      </Form.Item>
+      <Form.Item label='Time picker'>
+        <TimePicker />
       </Form.Item>
       <Form.Item label='as'>
         <Rate defaultValue={5} />

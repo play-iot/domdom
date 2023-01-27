@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-import { hello, Hey, Key } from '@tikio/wire';
+import { hello, Hey, Key } from '@domdom/wire';
 import { HttpServerRequest } from '@vertx/core';
 
 const hey: Hey = {

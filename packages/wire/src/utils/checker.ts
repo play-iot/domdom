@@ -36,6 +36,9 @@ export const isEmpty = (value: any): boolean => {
   if (isNull(value)) {
     return true;
   }
+  if (value instanceof Map || value instanceof Set) {
+    return value.size === 0;
+  }
   if (value instanceof Array) {
     return value.length === 0;
   }
