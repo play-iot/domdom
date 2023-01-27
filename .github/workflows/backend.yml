@@ -1,0 +1,24 @@
+name: backend
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/*.yml'
+      - '*.md'
+      - 'LICENSE'
+  pull_request:
+    types: [ opened, synchronize, reopened, closed ]
+    branches: [ main ]
+
+jobs:
+  context:
+    uses: play-iot/gha-ci/.github/workflows/project-context.yml@main
+    with:
+      profile: 'all'
+    secrets:
+      githubToken: ${{ secrets.BEEIO_CI_TOKEN }}
+      gpgKey: ${{ secrets.OSS_GPG_PRIVATE_KEY }}
+      gpgPassphrase: ${{ secrets.OSS_GPG_PASSPHARSE }}
