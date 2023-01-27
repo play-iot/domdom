@@ -32,7 +32,7 @@ jobs:
     if: needs.context.outputs.shouldBuild == 'true'
     uses: play-iot/gha-ci/.github/workflows/gradle-build.yml@main
     with:
-      profile: 'all'
+      profile: 'ciBuild'
       version: ${{ needs.context.outputs.version }}
       semanticVersion: ${{ needs.context.outputs.semanticVersion }}
       hashVersion: ${{ needs.context.outputs.commitId }}
