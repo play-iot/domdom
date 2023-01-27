@@ -18,13 +18,6 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: play-iot/gha-ci/yarn-build@main
-        with:
-          nodeVersion: ${{ env.NODE_VERSION }}
-
-      - name: Test
-        run: yarn test
+    uses: play-iot/gha-ci/.github/workflows/yarn-build.yml@main
+    with:
+      nodeVersion: '16'

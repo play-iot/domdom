@@ -13,6 +13,10 @@ on:
     types: [ opened, synchronize, reopened, closed ]
     branches: [ main ]
 
+env:
+  JAVA_DIST: 'temurin'
+  JAVA_VERSION: 11
+
 jobs:
   context:
     uses: play-iot/gha-ci/.github/workflows/project-context.yml@main
@@ -22,3 +26,15 @@ jobs:
       githubToken: ${{ secrets.BEEIO_CI_TOKEN }}
       gpgKey: ${{ secrets.OSS_GPG_PRIVATE_KEY }}
       gpgPassphrase: ${{ secrets.OSS_GPG_PASSPHARSE }}
+
+  build:
+    needs: context
+    if: needs.context.outputs.shouldBuild == 'true'
+    uses: play-iot/gha-ci/.github/workflows/gradle-build.yml@main
+    with:
+      profile: 'all'
+      version: ${{ needs.context.outputs.version }}
+      semanticVersion: ${{ needs.context.outputs.semanticVersion }}
+      hashVersion: ${{ needs.context.outputs.commitId }}
+      javaDist: 'temurin'
+      javaVersion: '11'
