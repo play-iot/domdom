@@ -6,6 +6,36 @@
  * Detailed information about configuring a multi-project build in Gradle can be found
  * in the user manual at https://docs.gradle.org/6.8.3/userguide/multi_project_builds.html
  */
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
 
-rootProject.name = "tikio"
-include("backend")
+rootProject.name = "domdom-parent"
+var pp: Array<String> = arrayOf()
+val profile: String by settings
+val pools = mutableMapOf(
+    "backend" to arrayOf(":backend:domdom"),
+    "docs" to arrayOf(":docs"),
+)
+val excludeCISonar = pools["docs"]!!
+val excludeCIBuild = pools["docs"]!!
+
+fun flatten(): List<String> = pools.values.toTypedArray().flatten()
+
+pp = when {
+    profile == "all" || profile.isBlank() -> flatten().toTypedArray()
+    profile == "ciBuild"                  -> flatten().filter { !excludeCIBuild.contains(it) }.toTypedArray()
+    profile == "ciSonar"                  -> flatten().filter { !excludeCISonar.contains(it) }.toTypedArray()
+    else                                  -> pools.getOrElse(profile) { throw IllegalArgumentException("Not found profile[$profile]") }
+}
+
+pp.forEach { include(it) }
+
+if (gradle is ExtensionAware) {
+    val extensions = (gradle as ExtensionAware).extensions
+    extensions.add("PROJECT_POOL", pools.toMap())
+    extensions.add("SKIP_PUBLISH", excludeCIBuild + arrayOf(":backend"))
+}
